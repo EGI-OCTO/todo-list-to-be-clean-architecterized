@@ -1,4 +1,6 @@
-package com.example.fabrikam.TodoDemo;
+package com.example.fabrikam.TodoDemo.Infrastructure;
+
+import com.example.fabrikam.TodoDemo.Domain.TodoItem;
 
 import java.util.ArrayList;
 

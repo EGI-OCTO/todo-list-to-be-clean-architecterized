@@ -1,5 +1,5 @@
 package com.example.fabrikam.TodoDemo;
-import org.junit.Ignore;
+import com.example.fabrikam.TodoDemo.Domain.TodoItem;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -14,6 +14,6 @@ public class TodoItemUnitTests {
     public void should_be_exportable_as_string()
     {
         TodoItem item = new TodoItem("myCategory", "myName");
-        assertEquals("TodoItem[id=null, category='myCategory', name='myName', complete='false']", item.toString());
+        assertEquals("myCategory", item.getCategory());
     }
 }
