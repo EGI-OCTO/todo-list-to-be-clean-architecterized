@@ -1,4 +1,3 @@
 package com.example.fabrikam.TodoDemo;
 
-public interface FastTests {
-}
+public interface FastTests { /* category marker */ }

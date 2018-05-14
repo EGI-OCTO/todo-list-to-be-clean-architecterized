@@ -1,15 +1,19 @@
 package com.example.fabrikam.TodoDemo;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.Assert.*;
 
-@RunWith(JUnitPlatform.class)
-public class TodoItemUnitTest {
+@RunWith(SpringRunner.class)
+public class TodoItemUnitTests {
 
     @Test
+    @Category(FastTests.class)
     public void should_be_exportable_as_string()
     {
         TodoItem item = new TodoItem("myCategory", "myName");
-        assertEquals("toto", item.toString());
+        assertEquals("TodoItem[id=null, category='myCategory', name='myName', complete='false']", item.toString());
     }
 }
