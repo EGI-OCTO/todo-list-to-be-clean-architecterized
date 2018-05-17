@@ -1,6 +1,7 @@
 package com.example.fabrikam.TodoDemo.Infrastructure;
 
 import com.example.fabrikam.TodoDemo.Domain.TodoItem;
+import com.example.fabrikam.TodoDemo.UseCases.AddANewItemUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +27,8 @@ public class TodoDemoController {
 
     @RequestMapping("/add")
     public String addTodo(@ModelAttribute TodoItem requestItem) {
-        TodoItem item = new TodoItem(requestItem.getCategory(), requestItem.getName());
-        repository.save(item);
+        AddANewItemUseCase useCase = new AddANewItemUseCase(repository);
+        useCase.handle(requestItem);
         return "redirect:/";
     }
 
