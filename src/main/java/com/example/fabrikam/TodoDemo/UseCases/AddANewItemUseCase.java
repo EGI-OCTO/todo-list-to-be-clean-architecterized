@@ -1,12 +1,10 @@
 package com.example.fabrikam.TodoDemo.UseCases;
 
 import com.example.fabrikam.TodoDemo.Domain.TodoItem;
-import com.example.fabrikam.TodoDemo.Infrastructure.TodoItemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.fabrikam.TodoDemo.Domain.TodoItemRepository;
 
 public class AddANewItemUseCase {
 
-    @Autowired
     private TodoItemRepository repository;
 
     public AddANewItemUseCase(TodoItemRepository repository) {

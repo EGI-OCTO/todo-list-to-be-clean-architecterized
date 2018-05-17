@@ -14,7 +14,10 @@ import java.util.ArrayList;
 public class TodoDemoController {
 
     @Autowired
-    private TodoItemRepository repository;
+    private MySQLTodoItemRepository repository;
+
+    @Autowired
+    private AddANewItemUseCase addANewItemUseCase;
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -27,8 +30,7 @@ public class TodoDemoController {
 
     @RequestMapping("/add")
     public String addTodo(@ModelAttribute TodoItem requestItem) {
-        AddANewItemUseCase useCase = new AddANewItemUseCase(repository);
-        useCase.handle(requestItem);
+        addANewItemUseCase.handle(requestItem);
         return "redirect:/";
     }
 
