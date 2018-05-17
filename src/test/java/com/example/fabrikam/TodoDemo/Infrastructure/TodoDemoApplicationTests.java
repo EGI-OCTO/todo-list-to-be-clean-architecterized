@@ -1,7 +1,8 @@
-package com.example.fabrikam.TodoDemo;
+package com.example.fabrikam.TodoDemo.Infrastructure;
 
 import com.example.fabrikam.TodoDemo.Domain.TodoItem;
 import com.example.fabrikam.TodoDemo.Infrastructure.TodoItemRepository;
+import com.example.fabrikam.TodoDemo.SlowTests;
 import org.junit.Before;
 import org.junit.experimental.categories.Category;
 import org.junit.Test;
