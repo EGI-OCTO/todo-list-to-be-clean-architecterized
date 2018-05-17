@@ -1,5 +1,7 @@
 package com.example.fabrikam.TodoDemo;
 
+import com.example.fabrikam.TodoDemo.Domain.TodoItem;
+
 import java.util.ArrayList;
 
 import javax.validation.Valid;

@@ -1,15 +1,7 @@
-package com.example.fabrikam.TodoDemo;
+package com.example.fabrikam.TodoDemo.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class TodoItem {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String category;
     private String name;

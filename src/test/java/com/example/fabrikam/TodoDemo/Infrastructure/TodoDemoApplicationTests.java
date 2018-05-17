@@ -1,7 +1,8 @@
 package com.example.fabrikam.TodoDemo;
 
+import com.example.fabrikam.TodoDemo.Domain.TodoItem;
+import com.example.fabrikam.TodoDemo.Infrastructure.TodoItemRepository;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 import org.junit.Test;
 import org.junit.runner.RunWith;
