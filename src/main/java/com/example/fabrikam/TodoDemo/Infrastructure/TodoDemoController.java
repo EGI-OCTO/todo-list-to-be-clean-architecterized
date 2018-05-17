@@ -2,6 +2,8 @@ package com.example.fabrikam.TodoDemo.Infrastructure;
 
 import com.example.fabrikam.TodoDemo.Domain.TodoItem;
 import com.example.fabrikam.TodoDemo.UseCases.AddANewItemUseCase;
+import com.example.fabrikam.TodoDemo.UseCases.ListAllItemsUseCase;
+import com.example.fabrikam.TodoDemo.UseCases.UpdateItemsUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +21,17 @@ public class TodoDemoController {
     @Autowired
     private AddANewItemUseCase addANewItemUseCase;
 
+    @Autowired
+    private UpdateItemsUseCase updateTodoItems;
+
+    @Autowired
+    private ListAllItemsUseCase listAllItemsUseCase;
+
     @RequestMapping("/")
     public String index(Model model) {
-        ArrayList<TodoItem> todoList = (ArrayList<TodoItem>) repository.findAll();
-        //model.addAttribute("items", todoList);
+
+        ArrayList<TodoItem> todoList = listAllItemsUseCase.handle();
+
         model.addAttribute("newitem", new TodoItem());
         model.addAttribute("items", new TodoListViewModel(todoList));
         return "index";
@@ -36,12 +45,7 @@ public class TodoDemoController {
 
     @RequestMapping("/update")
     public String updateTodo(@ModelAttribute TodoListViewModel requestItems) {
-        for (TodoItem requestItem : requestItems.getTodoList() ) {
-             TodoItem item = new TodoItem(requestItem.getCategory(), requestItem.getName());
-             item.setComplete(requestItem.isComplete());
-             item.setId(requestItem.getId());
-             repository.save(item);
-        }
+        updateTodoItems.handle(requestItems.getTodoList());
         return "redirect:/";
     }
 }

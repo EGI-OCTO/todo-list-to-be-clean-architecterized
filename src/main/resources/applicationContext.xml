@@ -16,4 +16,12 @@
         <constructor-arg index="0" ref="xmlMySQLTodoRepository"/>
     </bean>
 
+    <bean id="xmlUpdateItemsUseCase" class="com.example.fabrikam.TodoDemo.UseCases.UpdateItemsUseCase">
+        <constructor-arg index="0" ref="xmlMySQLTodoRepository"/>
+    </bean>
+
+    <bean id="xmlListAllItemsUseCase" class="com.example.fabrikam.TodoDemo.UseCases.ListAllItemsUseCase">
+        <constructor-arg index="0" ref="xmlMySQLTodoRepository"/>
+    </bean>
+
 </beans>
