@@ -6,10 +6,12 @@ usage() { echo "Usage: $0 [-u unit tests only] [-i integration tests only] [-h h
 while getopts "uih" option; do
     case "${option}" in
         u)
+            ./mvnw clean
             ./mvnw test -Dgroups="com.example.fabrikam.TodoDemo.FastTests" -e
             exit 0
             ;;
         i)
+            ./mvnw clean
             ./mvnw test -Dgroups="com.example.fabrikam.TodoDemo.SlowTests" -e
             exit 0
             ;;
@@ -21,5 +23,5 @@ while getopts "uih" option; do
             ;;
     esac
 done
-
+./mvnw clean
 ./mvnw test -e
