@@ -167,14 +167,22 @@ checkDirectory() {
     for file in ${files}
     do
         infoToConsole "Checking file \"$file\"" 1
+        isFileCleanArchi=1
         while read line
         do
             checkLine "${line}" ${regexAuthorizedForDirectory}
             if [ $? -eq 0 ]
             then
+                isFileCleanArchi=0
                 isCleanArchi=0
             fi
         done < ${file}
+        if [ ${isFileCleanArchi} -eq 1 ]
+        then
+            positiveToConsole "File is compliant" 2
+        else
+            negativeToConsole "File is not compliant" 2
+        fi
     done
     return ${isCleanArchi}
 }
