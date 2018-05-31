@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="xmlMySQLTodoRepository" class="com.example.fabrikam.TodoDemo.Infrastructure.MySQLTodoItemRepository">
+        <constructor-arg index="0" ref="CRUDTodoItemRepository"/>
+    </bean>
+
+    <bean id="xmlAddANewItemUseCase" class="com.example.fabrikam.TodoDemo.UseCases.AddANewItemUseCase">
+        <constructor-arg index="0" ref="xmlMySQLTodoRepository"/>
+    </bean>
+
+    <bean id="xmlUpdateItemsUseCase" class="com.example.fabrikam.TodoDemo.UseCases.UpdateItemsUseCase">
+        <constructor-arg index="0" ref="xmlMySQLTodoRepository"/>
+    </bean>
+
+    <bean id="xmlListAllItemsUseCase" class="com.example.fabrikam.TodoDemo.UseCases.ListAllItemsUseCase">
+        <constructor-arg index="0" ref="xmlMySQLTodoRepository"/>
+    </bean>
+
+</beans>

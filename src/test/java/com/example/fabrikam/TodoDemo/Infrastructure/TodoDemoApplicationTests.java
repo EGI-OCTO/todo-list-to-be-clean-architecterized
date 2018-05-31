@@ -1,7 +1,8 @@
-package com.example.fabrikam.TodoDemo;
+package com.example.fabrikam.TodoDemo.Infrastructure;
 
+import com.example.fabrikam.TodoDemo.Domain.TodoItem;
+import com.example.fabrikam.TodoDemo.SlowTests;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +30,7 @@ import static org.junit.Assert.*;
 public class TodoDemoApplicationTests {
 
     @Autowired
-    private TodoItemRepository repository;
+    private CRUDTodoItemRepository repository;
 
     @Autowired
     private TestRestTemplate restTemplate;

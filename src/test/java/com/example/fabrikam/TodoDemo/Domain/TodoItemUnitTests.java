@@ -1,5 +1,6 @@
-package com.example.fabrikam.TodoDemo;
-import org.junit.Ignore;
+package com.example.fabrikam.TodoDemo.Domain;
+
+import com.example.fabrikam.TodoDemo.FastTests;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
